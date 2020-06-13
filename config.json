@@ -1,0 +1,80 @@
+{
+    "datasets_test":
+    {
+        "HBR1": "hbr1",
+        "HBR2": "hbr2",
+        "HBR3": "hbr3",
+        "UHR1": "uhr1",
+        "UHR2": "uhr2",
+        "UHR3": "uhr3",
+    },
+    "datasets":
+    {
+        "ctrl" : "SRR1275413.1",
+        "XRN1" : "SRR1275414.1",
+        "SMG6-XRN1" : "SRR1275415.1",
+        "UPF1-XRN1" : "SRR1275416.1",
+    },
+    "datasets_colombo":
+    {
+        "ctrl1_1" : "SRR4081222.1",
+        "ctrl1_2" : "SRR4081223.1",
+        "ctrl1_3" : "SRR4081224.1",
+        "UPF1_KD1" : "SRR4081225.1",
+        "UPF1_KD2" : "SRR4081226.1",
+        "UPF1_KD3" : "SRR4081227.1",
+        "UPF1_res1" : "SRR4081228.1",
+        "UPF1_res2" : "SRR4081229.1",
+        "UPF1_res3" : "SRR4081230.1",
+        "SMG6_KD1" : "SRR4081231.1",
+        "SMG6_KD2" : "SRR4081232.1",
+        "SMG6_KD3" : "SRR4081233.1",
+        "SMG6_res1" : "SRR4081234.1",
+        "SMG6_res2" : "SRR4081235.1",
+        "SMG6_res3" : "SRR4081236.1",
+        "ctrl2_1" : "SRR4081237.1",
+        "ctrl2_2" : "SRR4081238.1",
+        "ctrl2_3" : "SRR4081239.1",
+        "SMG7_KD1" : "SRR4081240.1",
+        "SMG7_KD2" : "SRR4081241.1",
+        "SMG7_KD3" : "SRR4081242.1",
+        "SMG7_res1" : "SRR4081243.1",
+        "SMG7_res2" : "SRR4081244.1",
+        "SMG7_res3" : "SRR4081245.1",
+        "double_KD1" : "SRR4081246.1",
+        "double_KD2" : "SRR4081247.1",
+        "double_KD3" : "SRR4081248.1",
+        "double_resSMG6_1" : "SRR4081249.1",
+        "double_resSMG6_2" : "SRR4081250.1",
+        "double_resSMG6_3" : "SRR4081251.1",
+        "double_resSMG7_1" : "SRR4081252.1",
+        "double_resSMG7_2" : "SRR4081253.1",
+        "double_resSMG7_3" : "SRR4081254.1"
+    },
+    "download":
+    {
+        "genome": "ftp://ftp.ensembl.org/pub/release-87/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz"
+    },
+    "path_test":
+    {
+        "correct_annotation": "data/test_reference/chr22_with_ERCC92.correct_annotation.gtf",
+        "annotation": "data/test_reference/chr22_with_ERCC92.gtf",
+        "genome": "data/test_reference/chr22_with_ERCC92.fa",
+        "transcriptome": "data/test_reference/transcriptome.fa",
+        "gene_name" : "data/test_reference/gene_name.txt",
+        "kallisto_index" : "data/test_reference/kallisto.idx",
+        "star_index" : "data/test_reference/star_index/",
+        "chrNameLength" : "data/chrNameLength.txt"
+    },
+    "path":
+    {
+        "correct_annotation": "data/references/human_ensembl_87_wo_dup_v3.BB_v3.correct_annotation.gtf",
+        "annotation": "data/references/human_ensembl_87_wo_dup_v3.BB_v3.gtf",
+        "genome": "data/references/genome_87_primary.fa",
+        "transcriptome": "data/references/transcriptome.fa",
+        "gene_name" : "data/references/gene_name.txt",
+        "kallisto_index" : "data/references/kallisto.idx",
+        "star_index" : "data/references/star_index/",
+        "chrNameLength" : "data/chrNameLength.txt"
+    }
+}

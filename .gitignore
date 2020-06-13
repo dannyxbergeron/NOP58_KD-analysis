@@ -1,0 +1,16 @@
+# Snakemake files
+.snakemake
+logs/
+
+# Data folders
+data/references
+data/test_reference
+data/test_reads
+data/reads
+data/qc
+data/trimmed
+results/
+rules/__pycache__
+
+# Server files
+slurm_*
