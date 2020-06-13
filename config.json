@@ -10,14 +10,14 @@
     },
     "datasets":
     {
-        "18001_S7" : "LipoR1",
-        "Lipofectamine_n1_S1" : "LipoR3",
-        "Lipofectamine_n2_S4" : "LipoR4",
-        "lipo_n2_S4" : "LipoR2",
-        "NOP58_n1_S1" : "NOP58R1",
-        "NOP58_n1_S2" : "NOP58R2",
-        "NOP58_n2_S5" : "NOP58R5",
-        "NOP58_n2_S6" : "NOP58R6",
+        "LipoR1" : "18001_S7",
+        "LipoR3" : "Lipofectamine_n1_S1",
+        "LipoR4" : "Lipofectamine_n2_S4",
+        "LipoR2" : "lipo_n2_S4",
+        "NOP58R1" : "NOP58_n1_S1",
+        "NOP58R2" : "NOP58_n1_S2",
+        "NOP58R5" : "NOP58_n2_S5",
+        "NOP58R6" : "NOP58_n2_S6",
     },
     "download":
     {

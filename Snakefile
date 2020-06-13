@@ -39,12 +39,12 @@ rule rename_files:
     run:
         for id, original in config['datasets'].items():
             for num in [1, 2]:
-                old = "data/reads/{}_{}.fastq".format(original, num)
+                old = "data/reads/{}_R{}_001.fastq".format(original, num)
                 new_ = "data/reads/{}_{}.fastq".format(id, num)
 
                 print(old)
                 print(new_)
-                # os.rename(old, new_)
+                os.rename(old, new_)
 
 
 rule create_transcriptome:
@@ -211,7 +211,7 @@ rule star_index:
         fasta = config["path"]["genome"],
         gtf = config["path"]['annotation']
     output:
-        chrNameLength = "data/reference/star_index/chrNameLength.txt"
+        chrNameLength = "data/references/star_index/chrNameLength.txt"
     params:
         dir = config['path']['star_index']
     log:
