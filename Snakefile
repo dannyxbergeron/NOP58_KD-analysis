@@ -31,7 +31,7 @@ rule download_genome:
 
 rule rename_files:
     input:
-        fastq = expand("data/reads/{original_name}_{pair}.fastq",
+        fastq = expand("data/reads/{original_name}_R{pair}_001.fastq",
                        original_name=original_name, pair=[1, 2])
     output:
         new_name = expand("data/reads/{id}_{pair}.fastq",
@@ -44,7 +44,7 @@ rule rename_files:
 
                 print(old)
                 print(new_)
-                os.rename(old, new_)
+                # os.rename(old, new_)
 
 
 rule create_transcriptome:
@@ -245,7 +245,7 @@ rule star_alignReads:
     log:
         "logs/STAR/{id}.log"
     threads:
-        32
+        1 #32
     conda:
         "envs/star.yaml"
     shell:
