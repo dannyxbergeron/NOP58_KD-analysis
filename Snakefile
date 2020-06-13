@@ -2,8 +2,8 @@ import os
 
 configfile: "config.json"
 
-original_name = list(config['datasets_test'].values())
-simple_id = list(config['datasets_test'].keys())
+original_name = list(config['datasets'].values())
+simple_id = list(config['datasets'].keys())
 counts = ['est_counts', 'transcript_est_counts']
 
 rule all:
@@ -37,7 +37,7 @@ rule rename_files:
         new_name = expand("data/reads/{id}_{pair}.fastq",
                           id=simple_id, pair=[1, 2])
     run:
-        for id, original in config['datasets_test'].items():
+        for id, original in config['datasets'].items():
             for num in [1, 2]:
                 old = "data/reads/{}_{}.fastq".format(original, num)
                 new_ = "data/reads/{}_{}.fastq".format(id, num)
@@ -50,10 +50,10 @@ rule rename_files:
 rule create_transcriptome:
     """ Uses gffread to generate a transcriptome """
     input:
-        genome = config['path_test']['genome'],
-        gtf = config['path_test']['annotation']
+        genome = config['path']['genome'],
+        gtf = config['path']['annotation']
     output:
-        seqs = config['path_test']['transcriptome']
+        seqs = config['path']['transcriptome']
     conda:
         "envs/gffread.yaml"
     shell:
@@ -66,9 +66,9 @@ rule generate_transcriptID_geneName:
     relationship
     """
     input:
-        gtf = config['path_test']['annotation']
+        gtf = config['path']['annotation']
     output:
-        map = config['path_test']['gene_name']
+        map = config['path']['gene_name']
     conda:
         "envs/python.yaml"
     script:
@@ -139,7 +139,7 @@ rule kallisto_index:
     input:
         transcriptome = rules.create_transcriptome.output.seqs
     output:
-        idx = config['path_test']['kallisto_index']
+        idx = config['path']['kallisto_index']
     params:
         kmer = "31"
     log:
@@ -191,7 +191,7 @@ rule combine_gene_quantification:
     input:
         datasets = expand(
             "results/kallisto/{id}/abundance.tsv",
-            id=config['datasets_test'].keys()
+            id=config['datasets'].keys()
         ),
         map = rules.generate_transcriptID_geneName.output.map
     output:
@@ -208,12 +208,12 @@ rule combine_gene_quantification:
 rule star_index:
     """ Generates the genome index for STAR """
     input:
-        fasta = config["path_test"]["genome"],
-        gtf = config["path_test"]['annotation']
+        fasta = config["path"]["genome"],
+        gtf = config["path"]['annotation']
     output:
-        chrNameLength = "data/test_reference/star_index/chrNameLength.txt"
+        chrNameLength = "data/reference/star_index/chrNameLength.txt"
     params:
-        dir = config['path_test']['star_index']
+        dir = config['path']['star_index']
     log:
         "logs/STAR/index.log"
     conda:
@@ -240,7 +240,7 @@ rule star_alignReads:
     output:
         bam = "results/STAR/{id}/Aligned.sortedByCoord.out.bam"
     params:
-        index = config['path_test']['star_index'],
+        index = config['path']['star_index'],
         output_dir = "results/STAR/{id}/"
     log:
         "logs/STAR/{id}.log"

@@ -1,8 +1,8 @@
 rule create_coco_annotation:
     input:
-        gtf = config["path_test"]['annotation']
+        gtf = config["path"]['annotation']
     output:
-        correct_gtf = config["path_test"]['correct_annotation']
+        correct_gtf = config["path"]['correct_annotation']
     conda:
         "../envs/coco.yaml"
     shell:
@@ -10,7 +10,7 @@ rule create_coco_annotation:
 
 rule coco_cc:
     input:
-        annotation = config["path_test"]['correct_annotation'],
+        annotation = config["path"]['correct_annotation'],
         bam_file = "results/STAR/{id}/Aligned.sortedByCoord.out.bam"
     output:
         out_file = "results/coco/{id}.tsv"
