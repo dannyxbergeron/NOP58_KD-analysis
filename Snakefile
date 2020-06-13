@@ -211,7 +211,7 @@ rule star_index:
         fasta = config["path"]["genome"],
         gtf = config["path"]['annotation']
     output:
-        chrNameLength = "data/references/star_index/chrNameLength.txt"
+        chrNameLength = config['path']['chrNameLength']
     params:
         dir = config['path']['star_index']
     log:

@@ -32,7 +32,7 @@
         "gene_name" : "data/test_reference/gene_name.txt",
         "kallisto_index" : "data/test_reference/kallisto.idx",
         "star_index" : "data/test_reference/star_index/",
-        "chrNameLength" : "data/chrNameLength.txt"
+        "chrNameLength" : "data/test_reference/star_index/chrNameLength.txt"
     },
     "path":
     {
@@ -43,6 +43,6 @@
         "gene_name" : "data/references/gene_name.txt",
         "kallisto_index" : "data/references/kallisto.idx",
         "star_index" : "data/references/star_index/",
-        "chrNameLength" : "data/chrNameLength.txt"
+        "chrNameLength" : "data/references/star_index/chrNameLength.txt"
     }
 }
