@@ -13,4 +13,4 @@ results/
 rules/__pycache__
 
 # Server files
-slurm_*
+slurm-*
