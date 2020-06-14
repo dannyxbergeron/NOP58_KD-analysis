@@ -17,7 +17,7 @@ rule coco_cc:
     log:
         "logs/coco/{id}.log"
     threads:
-        8
+        16
     conda:
         "../envs/coco.yaml"
     shell:
