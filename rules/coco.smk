@@ -26,3 +26,13 @@ rule coco_cc:
         "-p {input.annotation} "
         "{input.bam_file} "
         "{output.out_file}"
+
+rule coco_merge:
+    input:
+        tpm_files = expand("results/coco/{id}.tsv", id=simple_id)
+    output:
+        merged = "results/coco/merged/tpm.tsv"
+    conda:
+        "../envs/python.yaml"
+    script:
+        "../scripts/combine_coco_quantification.py"
