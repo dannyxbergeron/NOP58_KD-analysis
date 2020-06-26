@@ -60,7 +60,7 @@ rule create_transcriptome:
         "gffread {input.gtf} -g {input.genome} -w {output.seqs}"
 
 
-rule generate_transcriptID_geneName:
+rule generate_transcriptID_geneId:
     """
     Generating a two-column text file containing the gene -> transcript
     relationship
@@ -72,7 +72,7 @@ rule generate_transcriptID_geneName:
     conda:
         "envs/python.yaml"
     script:
-        "scripts/generate_transcriptID_geneName.py"
+        "scripts/generate_transcriptID_geneId.py"
 
 
 rule trimming:
@@ -193,7 +193,7 @@ rule combine_gene_quantification:
             "results/kallisto/{id}/abundance.tsv",
             id=config['datasets'].keys()
         ),
-        map = rules.generate_transcriptID_geneName.output.map
+        map = rules.generate_transcriptID_geneId.output.map
     output:
         tpm = "results/kallisto/tpm.tsv",
         est_counts = "results/kallisto/est_counts.tsv",
